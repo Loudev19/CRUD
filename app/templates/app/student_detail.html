@@ -1,0 +1,11 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<h1>Información del estudiante</h1>
+<h3>Nombre : {{ object.name }}</h3>
+<h3>CUI : {{ object.identityNumber }}</h3>
+<h3>Dirección : {{ object.address }}</h3>
+<h3>Departamento : {{ object.department }}</h3>

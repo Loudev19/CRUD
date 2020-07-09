@@ -1,0 +1,36 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<h2>Estudiantes</h2>
+{% buttons %}
+<a href="{% url 'student_new' %}">Crear nuevo</a><br><br>
+{% endbuttons %}
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>CUI</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for student in object_list %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.identityNumber }}</td>
+        <td>
+            {% buttons %}<a href="{% url 'student_detail' student.id %}">Ver más</a>{% endbuttons %}
+        </td>
+        <td>
+            {% buttons %}<a href="{% url 'student_edit' student.id %}">Editar</a>{% endbuttons %}
+        </td>
+        <td>
+            {% buttons %}<a href="{% url 'student_delete' student.id %}">Eliminar</a>{% endbuttons %}
+        </td>
+    </tr>
+    {% empty %}
+    <h6>No hay ningún dato. Por favor, agrega un nuevo estudiante antes.</h6>
+    {% endfor %}
+</table>

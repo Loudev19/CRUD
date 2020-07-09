@@ -1,0 +1,31 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<h1>Crear nuevo estudiante</h1>
+<form method="POST">{% csrf_token %}
+
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td>{{ form.name }}</td>
+        </tr>
+        <tr>
+            <td>CUI</td>
+            <td>{{ form.identityNumber }}</td>
+        </tr>
+        <tr>
+            <td>Departamento</td>
+            <td>{{ form.department }}</td>
+        </tr>
+        <tr>
+            <td>Dirección</td>
+            <td>{{ form.address }}</td>
+        </tr>
+        <tr>
+            <td>{% buttons %}<input type="submit" value="Guardar">{% endbuttons %}</td>
+        </tr>
+    </table>
+</form>

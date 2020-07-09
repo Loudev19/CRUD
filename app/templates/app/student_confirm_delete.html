@@ -1,0 +1,10 @@
+{% load bootstrap4 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+<form method="post">{% csrf_token %}
+    ¿Estás seguro de querer eliminar a "{{ object }}" ?
+    {% buttons %}<input type="submit" value="Aceptar" />{% endbuttons %}
+</form>
